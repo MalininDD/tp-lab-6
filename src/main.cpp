@@ -12,7 +12,7 @@ int main() {
         emp->setWorkTime(std::rand() % 40 + 1);
     }
 
-    for ( Employee* emp: staff ) {
+    for ( Employee* emp : staff ) {
         emp->calc();
     }
 
