@@ -48,7 +48,7 @@ TEST(MyTests, test7) {
     staff.at(12)->calc();
     staff.at(12)->setWorkTime(0);
     staff.at(12)->calc();
-    EXPECT_EQ(2000, staff.at(0)->getPayment());
+    EXPECT_EQ(2000, staff.at(12)->getPayment());
 }
 
 TEST(MyTests, test8) {
