@@ -32,7 +32,8 @@ std::vector<Employee*> StaffFactory::makeStaff() {
     pfile2 >> jsonProj;
     pfile2.close();
 
-    auto projectJson = jsonProj["projects"].get<std::vector<nlohmann::json>>();
+    auto projectJson =
+    jsonProj["projects"].get<std::vector<nlohmann::json>>();
     for (const auto& p : projectJson) {
         int id = p["id"].get<int>();
         int budget = p["budget"].get<int>();
@@ -53,12 +54,10 @@ std::vector<Employee*> StaffFactory::makeStaff() {
         std::string name = e["name"].get<std::string>();
         if (position == "driver" || position == "cleaner") {
             int salary = e["salary"].get<int>();
-            if (position == "driver") {
-                empl.push_back(new Driver(id++, name, position, salary));
-            }
-            else {
-                empl.push_back(new Cleaner(id++, name, position, salary));
-            }
+            if (position == "driver") empl.push_back(new
+                        Driver(id++, name, position, salary));
+            else empl.push_back(new
+                        Cleaner(id++, name, position, salary));
         }
         else if (position == "programmer") {
             unsigned int salary = e["salary"].get<int>();
@@ -77,16 +76,21 @@ std::vector<Employee*> StaffFactory::makeStaff() {
         }
         else if (position == "project_manager") {
             int salary = e["salary"].get<int>();
-            std::vector<int> projects1 = e["project"].get<std::vector<int>>();
+            std::vector<int> projects1 =
+            e["project"].get<std::vector<int>>();
             int part = e["part"].get<int>();
             std::vector<Project *> projects2;
             projects2.push_back(proj[projects1[0]]);
-            empl.push_back(new ProjectManager(id++, name, position, 1, projects2, static_cast<float>(part), salary));
+            empl.push_back(new
+                ProjectManager(id++,
+                name, position, 1, projects2,
+                static_cast<float>(part), salary));
         }
         else if (position == "senior_manager") {
             int salary = e["salary"].get<int>();
             int part = e["part"].get<int>();
-            empl.push_back(new SeniorManager(id++, name, position, static_cast<int>(proj.size()), proj, static_cast<float>(part), salary));
+            empl.push_back(new SeniorManager(id++, name, position, static_cast<int>(proj.size()), proj,
+                        static_cast<float>(part), salary));
         }
         else {
             int projects1 = e["project"].get<int>();

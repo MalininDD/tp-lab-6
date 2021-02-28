@@ -8,15 +8,15 @@
 int main() {
     std::vector<Employee*> staff = StaffFactory::makeStaff();
 
-    for(Employee* emp : staff) {
+    for ( Employee* emp : staff ) {
         emp->setWorkTime(std::rand() % 40 + 1);
     }
 
-    for(Employee* emp: staff) {
+    for ( Employee* emp: staff ) {
         emp->calc();
     }
 
-    for (Employee* emp : staff) {
+    for ( Employee* emp : staff ) {
         emp->printInfo();
     }
 

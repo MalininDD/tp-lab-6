@@ -3,14 +3,14 @@
 #include "Manager.h"
 
 ProjectManager::ProjectManager(int id, std::string name,
-                               std::string position,
-                               int numProjects,
-                               std::vector<Project *> &projects,
-                               float part,
-                               int salary) : Employee(id,
-                                                      name,
-                                                      position,
-                                                      salary),
+                std::string position,
+                int numProjects,
+                const std::vector<Project *> &projects,
+                float part,
+                int salary) : Employee(id,
+                                    name,
+                                    position,
+                                    salary),
 part(part) {
     for (int i = 0; i < numProjects; i++) {
         this->projects.push_back(projects[i]);
@@ -45,9 +45,9 @@ int ProjectManager::calcProAdditions() {
 }
 
 SeniorManager::SeniorManager(int id, std::string name, std::string position,
-        int numProjects, std::vector<Project *> &projects,
+        int numProjects, const std::vector<Project *> &projects,
         float part, int salary) : ProjectManager(id, name, position,
-        numProjects, projects, part, salary){}
+        numProjects, projects, part, salary) {}
 
 void ProjectManager::printInfo() {
     std::cout << "Information : " << std::endl;

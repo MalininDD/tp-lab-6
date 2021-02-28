@@ -8,7 +8,7 @@
 Personal::Personal(unsigned int id, std::string name,
                    std::string position,
                    unsigned int payment,
-                   int salary) : Employee (id,
+                   int salary) : Employee(id,
                                            name,
                                            position,
                                            payment),
