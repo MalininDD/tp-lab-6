@@ -2,7 +2,16 @@
 #include <iostream>
 #include "Manager.h"
 
-ProjectManager::ProjectManager(int id, std::string name, std::string position, int numProjects, std::vector<Project *> &projects, float part, int salary) : Employee(id, name, position, salary), part(part) {
+ProjectManager::ProjectManager(int id, std::string name,
+                               std::string position,
+                               int numProjects,
+                               std::vector<Project *> &projects,
+                               float part,
+                               int salary) : Employee(id,
+                                                      name,
+                                                      position,
+                                                      salary),
+part(part) {
     for (int i = 0; i < numProjects; i++) {
         this->projects.push_back(projects[i]);
     }
@@ -23,7 +32,9 @@ void ProjectManager::calc() {
     int s = 0;
     for (auto p : projects)
         s += p->budget;
-    payment = salary*worktime + calcBudgetPart(part, s) + calcProAdditions() + calcHeads();
+    payment = salary*worktime +
+    calcBudgetPart(part, s) + calcProAdditions()
+    + calcHeads();
 }
 
 int ProjectManager::calcProAdditions() {

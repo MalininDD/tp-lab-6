@@ -6,8 +6,13 @@
 #include "Employee.h"
 
 Personal::Personal(unsigned int id, std::string name,
-                   std::string position, unsigned int payment, int salary)
-: Employee (id, name, position, payment), salary(salary) {}
+                   std::string position,
+                   unsigned int payment,
+                   int salary) : Employee (id,
+                                           name,
+                                           position,
+                                           payment),
+                                           salary(salary) {}
 
 int Personal::calcBase(int salary, int wtime) {
     return salary * wtime;

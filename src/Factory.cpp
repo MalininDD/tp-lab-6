@@ -26,7 +26,7 @@ void Project::SetBudget(int budget) {
 std::vector<Employee*> StaffFactory::makeStaff() {
     std::vector<Project*> proj;
     std::string pfile = R"(projects.json)";
-    
+
     std::ifstream pfile2(pfile);
     nlohmann::json jsonProj;
     pfile2 >> jsonProj;
@@ -46,22 +46,28 @@ std::vector<Employee*> StaffFactory::makeStaff() {
     efile2 >> jsonEmpl;
     efile2.close();
     int id = 0;
-    auto employeeJson = jsonEmpl["employees"].get<std::vector<nlohmann::json>>();
+    auto employeeJson =
+    jsonEmpl["employees"].get<std::vector<nlohmann::json>>();
     for (const auto& e : employeeJson) {
         std::string position = e["position"].get<std::string>();
         std::string name = e["name"].get<std::string>();
-        if (position == "driver" or position == "cleaner") {
+        if (position == "driver" || position == "cleaner") {
             int salary = e["salary"].get<int>();
-            if (position == "driver")
+            if (position == "driver") {
                 empl.push_back(new Driver(id++, name, position, salary));
-            else
+            }
+            else {
                 empl.push_back(new Cleaner(id++, name, position, salary));
+            }
         }
         else if (position == "programmer") {
             unsigned int salary = e["salary"].get<int>();
             int projectid = e["project"].get<int>();
             int part = e["part"].get<int>();
-            empl.push_back(new Programmer(id++, name, position, salary, proj[projectid], static_cast<float>(part)));
+            empl.push_back(new Programmer(id++, name,
+                                          position, salary,
+                                          proj[projectid],
+                                          static_cast<float>(part)));
         }
         else if (position == "tester") {
             int salary = e["salary"].get<int>();

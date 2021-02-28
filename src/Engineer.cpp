@@ -4,7 +4,7 @@
 Engineer::Engineer(unsigned int id, std::string name,
          std::string position, unsigned int payment,
          Project* project, float part) :
-         Personal(id, name,position,0, payment), project(project),
+         Personal(id, name, position, 0, payment), project(project),
          part(part) {}
 
 Tester::Tester(unsigned int id, std::string name,
