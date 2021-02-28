@@ -54,9 +54,10 @@ std::vector<Employee*> StaffFactory::makeStaff() {
         std::string name = e["name"].get<std::string>();
         if (position == "driver" || position == "cleaner") {
             int salary = e["salary"].get<int>();
-            if (position == "driver") empl.push_back(new
+            if (position == "driver") {
+                empl.push_back(new
                         Driver(id++, name, position, salary));
-            else {
+            } else {
                 empl.push_back(
                 new Cleaner(id++, name, position, salary));
             }
