@@ -2,6 +2,7 @@
 
 #ifndef INCLUDE_ENGINEER_H_
 #define INCLUDE_ENGINEER_H_
+#include <string>
 #include "Factory.h"
 #include "Personal.h"
 #include "Interfaces.h"
@@ -16,7 +17,6 @@ class Engineer : public IProjectBudget, public Personal {
              Project* project, float part);
     int calcBudgetPart(float part, int budget) override;
     void printInfo() override;
-    
 };
 
 class Tester : public Engineer {
@@ -38,7 +38,7 @@ class Programmer : public Engineer {
 };
 
 class TeamLeader : public Engineer, public IHeading {
-public:
+ public:
     TeamLeader(unsigned int id, std::string name,
                std::string position, unsigned int payment,
                Project* project, float part);

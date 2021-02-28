@@ -12,7 +12,7 @@ class Personal : public Employee, public IWorkBaseTime {
  public:
     Personal(unsigned int id, std::string name,
              std::string position, unsigned int payment, int salary);
-    
+
     int calcBase(int salary, int wtime) override;
     int calcBonus() override;
     void printInfo() override;
@@ -26,7 +26,7 @@ class Driver : public Personal{
 };
 
 class Cleaner : public Personal{
-public:
+ public:
     Cleaner(unsigned int id, std::string name,
             std::string position, unsigned int payment);
 };

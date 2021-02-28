@@ -2,6 +2,7 @@
 
 #ifndef INCLUDE_MANAGER_H_
 #define INCLUDE_MANAGER_H_
+#include <string>
 #include <vector>
 #include "Interfaces.h"
 #include "Employee.h"
@@ -12,7 +13,10 @@ class ProjectManager : public IProjectBudget, public IHeading, public Employee {
     std::vector<Project *> projects;
     float part;
  public:
-    ProjectManager(int id, std::string name, std::string position, int numProjects, std::vector<Project *> &projects, float part, int salary);
+    ProjectManager(int id, std::string name,
+                   std::string position, int numProjects,
+                   std::vector<Project *> &projects,
+                   float part, int salary);
     int calcBudgetPart(float part, int budget) override;
     int calcProAdditions() override;
     int calcHeads() override;

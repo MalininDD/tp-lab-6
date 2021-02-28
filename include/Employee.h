@@ -13,9 +13,10 @@ class Employee{
     unsigned int worktime;
     unsigned int payment = 0;
     unsigned int salary;
-    
+
  public:
-    Employee(int id, std::string name, std::string position, unsigned int salary);
+    Employee(int id, std::string name, std::string position,
+             unsigned int salary);
     Employee(int id, std::string name, std::string position);
     void setWorkTime(unsigned int worktime);
     virtual void calc() = 0;
@@ -25,7 +26,6 @@ class Employee{
     unsigned int getSalary();
     std::string getPosition();
     std::string getName();
-    
 };
 
 #endif  // INCLUDE_EMPLOYEE_H_

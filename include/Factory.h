@@ -10,18 +10,18 @@ class Project{
  public:
     int id;
     int budget;
-    
+
     int GetId() const;
-    
+
     void SetId(int id);
-    
+
     int GetBudget() const;
-    
+
     void SetBudget(int budget);
 };
 
 class StaffFactory {
-public:
+ public:
     static std::vector<Employee*> makeStaff();
 };
 #endif  // INCLUDE_FACTORY_H_
